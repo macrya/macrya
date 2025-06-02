@@ -1,7 +1,7 @@
 ## Hello world. My name is markRyan a computer science student. changing your perspective one line at a time. 👋
 
-<!--
-**macrya/macrya** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+
+macrya/macrya** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
 Here are some ideas to get you started:
 
