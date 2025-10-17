@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryans portfolio</title>
+    <meta name="description" content="Professional portfolio showcasing my work and skills">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Link to Font Awesome for icons (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link to Google Fonts (optional) -->
+    
+     <link rel="stylesheet" href="dynamic .css">
+    </head>
+    <script>
+        // Filter projects by tags
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            // Add click event to each filter button
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Get the filter value
+                    const filterValue = button.getAttribute('data-filter');
+                    
+                    // Reset active class on buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // Filter projects
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            const tags = card.querySelectorAll('.tag');
+                            let hasTag = false;
+                            
+                            tags.forEach(tag => {
+                                if (tag.textContent.toLowerCase() === filterValue) {
+                                    hasTag = true;
+                                }
+                            });
+                            
+                            card.style.display = hasTag ? 'block' : 'none';
+                        }
+                    });
+                });
+            });
+        });
+        </script>
+    <body>
+        
+            <nav class="navbar">
+                <div class="container nav-container">
+                    <a href="#" class="nav-logo">MarkRyan </a>
+                    <ul class="nav-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Hi, I'm <span>MarkRyan</span></h1>
+                <p class="hero-subtitle">A computer scientist specializing in python development,datascience, game development during free time</p>
+                <a href="#projects" class="btn">View My Work</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="Ecu programmer">Ecu programs</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <img src="project1.jpg" alt="Project 1" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">herb store</h3>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <p>Brief description of the project and what it accomplishes.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small">Live Demo</a>
+                            <a href="#" class="btn btn-outline btn-small">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <img src="project2.jpg" alt="Project 2" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">Stock app</h3>
+                        <div class="project-tags">
+                            <span class="tag">python</span>
+                            <span class="tag">TKinter framework</span>
+                        </div>
+                        <p>Brief description of the project and what it accomplishes.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small">Live Demo</a>
+                            <a href="#" class="btn btn-outline btn-small">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <img src="project3.jpg" alt="Project 3" class="project-img">
+                    <div class="project-info">
+                        <h3 class="project-title">obdi reader</h3>
+                        <div class="project-tags">
+                            <span class="tag">python</span>
+                            <span class="tag">Flask</span>
+                        </div>
+                        <p>Brief description of the project and what it accomplishes.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small">Live Demo</a>
+                            <a href="#" class="btn btn-outline btn-small">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-container">
+                <div class="about-content">
+                    <h3>Who I Am</h3>
+                    <p>Wd.</p>
+                    <p>Inc.</p>
+                    
+                    <h3>My Skills</h3>
+                    <div class="skills-list">
+                        <span class="skill-item">HTML/CSS</span>
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">Git</span>
+                    </div>
+                </div>
+                <div class="about-img">
+                    <img src="project.JPG " width="250px" length="300px" alt="MARKRYAN" class="profile-photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+               <!-- In your HTML (footer section) -->
+<div class="social-links">
+    <a href="https://github.com/macrya" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://linkedin.com/in/markryan kim" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://tiktok.com/indubitable ryan" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-tiktok"></i>
+    </a>
+    <a href="https://instagram.com/mandryans.world" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-instagram"></i>
+    </a>
+</a>
+<a href="https://whatsapp.com/+254798707487" target="_blank" rel="noopener noreferrer">
+  <i class="fab fa-whatsapp"></i>
+</a>
+    
+  </div>
+            </div>
+            <p>&copy; <span id="year"></span>MARKRYAN. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Script for current year in footer -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        // Animate projects on scroll with Intersection Observer (modern approach)
+        document.addEventListener('DOMContentLoaded', function() {
+          const projectCards = document.querySelectorAll('.project-card');
+          
+          // Set up Intersection Observer
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target); // Stop observing after animation
+              }
+            });
+          }, {
+            threshold: 0.1, // Trigger when 10% of element is visible
+            rootMargin: '2px 0px -50px 0px' // Adjust trigger point
+          });
+        
+          // Observe each project card
+          projectCards.forEach(card => {
+            observer.observe(card);
+          });
+        });
+        </script>
+</body>
+
+</html>
+        
+        
