@@ -42,9 +42,7 @@ Security best practices 🛡️
 Or just sharing cool code snippets!
 
 Find me around the web:
-https://img.shields.io/badge/LinkedIn-Connect-blue
-https://img.shields.io/badge/Twitter-Follow-1DA1F2
-https://img.shields.io/badge/Website-Visit-brightgreen
+
 
 <p align="center"> <i>Thanks for stopping by! Remember: In a world full of `./a.out`, be a `make fun`.</i> ✨ </p><p align="center"> <img src="https://komarev.com/ghpvc/?username=markryan&label=Profile%20Views&color=0e75b6&style=flat" alt="Profile views" /> </p>
 
