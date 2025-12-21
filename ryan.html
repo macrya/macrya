@@ -1,234 +1,458 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ryans portfolio</title>
-    <meta name="description" content="Professional portfolio showcasing my work and skills">
-    <link rel="stylesheet" href="styles.css">
-    <!-- Link to Font Awesome for icons (optional) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Link to Google Fonts (optional) -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Futuristic CS Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070b14;
+      --bg-glass: rgba(255,255,255,0.05);
+      --primary: #00e5ff;
+      --secondary: #7c7cff;
+      --accent: #00ff9c;
+      --text: #e8ecf1;
+      --muted: #9aa4b2;
+      --radius: 16px;
+      --glow: 0 0 20px rgba(0,229,255,0.5);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(124,124,255,0.2), transparent),
+                  radial-gradient(800px 400px at 90% 10%, rgba(0,255,156,0.15), transparent),
+                  var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--primary); text-decoration: none; }
+
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(to bottom, rgba(7,11,20,0.8), rgba(7,11,20,0.4));
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 100;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+    }
+
+    .logo {
+      font-family: Orbitron, sans-serif;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--primary);
+      text-shadow: var(--glow);
+    }
+
+    .nav a { margin-left: 20px; color: var(--text); }
+
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 24px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+      min-height: calc(100vh - 80px);
+    }
+
+    .hero h1 {
+      font-family: Orbitron, sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.1;
+    }
+
+    .hero h1 span { color: var(--primary); text-shadow: var(--glow); }
+
+    .hero p { color: var(--muted); margin: 20px 0 32px; max-width: 520px; }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #000;
+      font-weight: 600;
+      box-shadow: var(--glow);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(0,229,255,0.8); }
+
+    .glass {
+      background: var(--bg-glass);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      backdrop-filter: blur(14px);
+      padding: 28px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .terminal {
+      font-family: monospace;
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card h3 {
+      font-family: Orbitron, sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .card p { color: var(--muted); }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+    }
+
+    /* --- New Features Styles --- */
     
-     <link rel="stylesheet" href="dynamic .css">
-    </head>
-    <script>
-        // Filter projects by tags
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const projectCards = document.querySelectorAll('.project-card');
-            
-            // Add click event to each filter button
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Get the filter value
-                    const filterValue = button.getAttribute('data-filter');
-                    
-                    // Reset active class on buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-                    
-                    // Filter projects
-                    projectCards.forEach(card => {
-                        if (filterValue === 'all') {
-                            card.style.display = 'block';
-                        } else {
-                            const tags = card.querySelectorAll('.tag');
-                            let hasTag = false;
-                            
-                            tags.forEach(tag => {
-                                if (tag.textContent.toLowerCase() === filterValue) {
-                                    hasTag = true;
-                                }
-                            });
-                            
-                            card.style.display = hasTag ? 'block' : 'none';
-                        }
-                    });
-                });
-            });
-        });
-        </script>
-    <body>
-        
-            <nav class="navbar">
-                <div class="container nav-container">
-                    <a href="#" class="nav-logo">MarkRyan </a>
-                    <ul class="nav-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </nav>
-        
+    /* Visitor Count */
+    .visitor-count {
+      font-family: 'Orbitron', monospace;
+      color: var(--accent);
+      margin-top: 12px;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      opacity: 0.8;
+    }
+
+    /* Project Animations */
+    .card {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+      transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 0 25px rgba(0, 229, 255, 0.4);
+      border-color: var(--primary);
+      z-index: 10;
+    }
+
+    /* Walkthrough Agent */
+    .agent-container {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      pointer-events: none;
+    }
+    .agent-orb {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, var(--primary), #000);
+      box-shadow: 0 0 15px var(--primary), inset 0 0 10px var(--primary);
+      animation: float 3s ease-in-out infinite;
+      cursor: pointer;
+      pointer-events: auto;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .agent-msg {
+      background: rgba(7, 11, 20, 0.95);
+      border: 1px solid var(--primary);
+      padding: 16px;
+      border-radius: 12px 12px 0 12px;
+      margin-bottom: 12px;
+      color: var(--text);
+      font-size: 0.9rem;
+      max-width: 280px;
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: auto;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+    }
+    .agent-msg.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .agent-btn {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      color: #000;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 8px;
+      font-size: 0.75rem;
+      margin-right: 6px;
+      transition: filter 0.2s;
+    }
+    .agent-btn:hover { filter: brightness(1.2); }
     
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Hi, I'm <span>MarkRyan</span></h1>
-                <p class="hero-subtitle">A computer scientist specializing in python development,datascience, game development during free time</p>
-                <a href="#projects" class="btn">View My Work</a>
-                <a href="#contact" class="btn btn-outline">Contact Me</a>
-            </div>
-        </div>
-    </section>
+    @keyframes float {
+      0%, 100% { transform: translateY(0); box-shadow: 0 0 15px var(--primary); }
+      50% { transform: translateY(-8px); box-shadow: 0 0 25px var(--primary); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo" id="logo">CS_PORTFOLIO</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="web">Web</button>
-                <button class="filter-btn" data-filter="Ecu programmer">Ecu programs</button>
-                <button class="filter-btn" data-filter="mobile">Mobile</button>
-            </div>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <img src="project1.jpg" alt="Project 1" class="project-img">
-                    <div class="project-info">
-                        <h3 class="project-title">herb store</h3>
-                        <div class="project-tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">JavaScript</span>
-                        </div>
-                        <p>Brief description of the project and what it accomplishes.</p>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">Live Demo</a>
-                            <a href="#" class="btn btn-outline btn-small">Code</a>
-                        </div>
-                    </div>
-                </div>
+  <section class="hero" id="home">
+    <div>
+      <h1>Hello, I'm <span id="name">Alex Quantum</span></h1>
+      <p id="tagline">Computer Scientist crafting intelligent systems, scalable architectures, and immersive digital experiences.</p>
+      <a href="#projects" class="btn">Explore My Work</a>
+    </div>
+    <div class="glass terminal" id="terminal"></div>
+  </section>
 
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <img src="project2.jpg" alt="Project 2" class="project-img">
-                    <div class="project-info">
-                        <h3 class="project-title">Stock app</h3>
-                        <div class="project-tags">
-                            <span class="tag">python</span>
-                            <span class="tag">TKinter framework</span>
-                        </div>
-                        <p>Brief description of the project and what it accomplishes.</p>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">Live Demo</a>
-                            <a href="#" class="btn btn-outline btn-small">Code</a>
-                        </div>
-                    </div>
-                </div>
+  <section id="about">
+    <div class="glass">
+      <h2>About Me</h2>
+      <p id="aboutText" style="margin-top:12px;color:var(--muted)">Passionate about algorithms, AI, and building futuristic applications that push boundaries.</p>
+    </div>
+  </section>
 
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <img src="project3.jpg" alt="Project 3" class="project-img">
-                    <div class="project-info">
-                        <h3 class="project-title">obdi reader</h3>
-                        <div class="project-tags">
-                            <span class="tag">python</span>
-                            <span class="tag">Flask</span>
-                        </div>
-                        <p>Brief description of the project and what it accomplishes.</p>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">Live Demo</a>
-                            <a href="#" class="btn btn-outline btn-small">Case Study</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section id="projects">
+    <h2 style="margin-bottom:24px">Projects</h2>
+    <div class="grid" id="projectsGrid"></div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-container">
-                <div class="about-content">
-                    <h3>Who I Am</h3>
-                    <p>Wd.</p>
-                    <p>Inc.</p>
-                    
-                    <h3>My Skills</h3>
-                    <div class="skills-list">
-                        <span class="skill-item">HTML/CSS</span>
-                        <span class="skill-item">JavaScript</span>
-                        <span class="skill-item">Python</span>
-                        <span class="skill-item">Git</span>
-                    </div>
-                </div>
-                <div class="about-img">
-                    <img src="project.JPG " width="250px" length="300px" alt="MARKRYAN" class="profile-photo">
-                </div>
-            </div>
-        </div>
-    </section>
+  <section id="skills">
+    <h2 style="margin-bottom:24px">Skills</h2>
+    <div class="grid" id="skillsGrid"></div>
+  </section>
 
-    <!-- Contact Section -->
-    
+  <section id="contact">
+    <div class="glass">
+      <h2>Contact</h2>
+      <p id="contactText" style="margin:12px 0;color:var(--muted)">Let's build something extraordinary.</p>
+      <p>Email: <a id="email" href="mailto:you@example.com">you@example.com</a></p>
+      <p>GitHub: <a id="github" href="#" target="_blank">github.com/you</a></p>
+      <p>LinkedIn: <a id="linkedin" href="#" target="_blank">linkedin.com/in/you</a></p>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="social-links">
-               <!-- In your HTML (footer section) -->
-<div class="social-links">
-    <a href="https://github.com/macrya" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://linkedin.com/in/markryan kim" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-linkedin-in"></i>
-    </a>
-    <a href="https://tiktok.com/indubitable ryan" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-tiktok"></i>
-    </a>
-    <a href="https://instagram.com/mandryans.world" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-instagram"></i>
-    </a>
-</a>
-<a href="https://whatsapp.com/+254798707487" target="_blank" rel="noopener noreferrer">
-  <i class="fab fa-whatsapp"></i>
-</a>
-    
+  <footer>
+    <p>© <span id="year"></span> <span id="footerName">MarkRyan Kimathi</span>. All rights reserved.</p>
+    <div id="visitorCount" class="visitor-count"></div>
+  </footer>
+
+  <!-- Walkthrough Agent -->
+  <div class="agent-container">
+    <div class="agent-msg" id="agentMsg">
+      <p id="agentText">System Online.</p>
+      <div id="agentActions"></div>
+    </div>
+    <div class="agent-orb" id="agentOrb" title="Click for assistance"></div>
   </div>
-            </div>
-            <p>&copy; <span id="year"></span>MARKRYAN. All rights reserved.</p>
-        </div>
-    </footer>
 
-    <!-- Script for current year in footer -->
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-    <script>
-        // Animate projects on scroll with Intersection Observer (modern approach)
-        document.addEventListener('DOMContentLoaded', function() {
-          const projectCards = document.querySelectorAll('.project-card');
-          
-          // Set up Intersection Observer
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-                observer.unobserve(entry.target); // Stop observing after animation
-              }
-            });
-          }, {
-            threshold: 0.1, // Trigger when 10% of element is visible
-            rootMargin: '2px 0px -50px 0px' // Adjust trigger point
-          });
-        
-          // Observe each project card
-          projectCards.forEach(card => {
-            observer.observe(card);
-          });
-        });
-        </script>
+  <script>
+    // ====== CUSTOMIZATION CONFIG ======
+    const CONFIG = {
+      name: "Markryan kimathi",
+      logo: "CS_PORTFOLIO",
+      tagline: "Computer Scientist crafting intelligent systems, scalable architectures, and immersive digital experiences.",
+      about: "Passionate about algorithms, AI, and building futuristic applications that push boundaries.",
+      email: "kimmarkryan5@gmail.com",
+      github: "https://github.com/macrya",
+      linkedin: "https://www.linkedin.com/in/markryan-kim",
+      instagram: "https://www.instagram.com/ryans.studios",
+      whatsapp: "0798707487",
+      terminalLines: [
+        "> initializing neural modules...",
+        "> loading projects...",
+        "> compiling dreams into code...",
+        "> system ready ✔"
+      ],
+      projects: [
+        { title: "Neural Vision", desc: "Deep learning system for real-time image understanding." },
+        { title: "Ai Threat protection", desc: "High-performance Ai threat protection simulator currently eith 40% accuracy." },
+        { title: "CyberShield", desc: "AI-driven cybersecurity threat detection platform." }
+      ],
+      skills: ["Python", "C++", "JavaScript", "AI/ML", "Cybersecurity"],
+      theme: {
+        primary: "#00e5ff",
+        secondary: "#7c7cff",
+        accent: "#00ff9c",
+        bg: "#070b14"
+      }
+    };
+
+    // ====== APPLY CONFIG ======
+    document.getElementById('name').textContent = CONFIG.name;
+    document.getElementById('footerName').textContent = CONFIG.name;
+    document.getElementById('logo').textContent = CONFIG.logo;
+    document.getElementById('tagline').textContent = CONFIG.tagline;
+    document.getElementById('aboutText').textContent = CONFIG.about;
+    document.getElementById('email').textContent = CONFIG.email;
+    document.getElementById('email').href = `mailto:${CONFIG.email}`;
+    document.getElementById('github').href = CONFIG.github;
+    document.getElementById('github').textContent = CONFIG.github.replace('https://','');
+    document.getElementById('linkedin').href = CONFIG.linkedin;
+    document.getElementById('linkedin').textContent = CONFIG.linkedin.replace('https://','');
+
+    const root = document.documentElement;
+    root.style.setProperty('--primary', CONFIG.theme.primary);
+    root.style.setProperty('--secondary', CONFIG.theme.secondary);
+    root.style.setProperty('--accent', CONFIG.theme.accent);
+    root.style.setProperty('--bg', CONFIG.theme.bg);
+
+    const projectsGrid = document.getElementById('projectsGrid');
+    CONFIG.projects.forEach((p, index) => {
+      const div = document.createElement('div');
+      div.className = 'glass card';
+      div.innerHTML = `<h3>${p.title}</h3><p>${p.desc}</p>`;
+      div.style.transitionDelay = `${index * 100}ms`;
+      projectsGrid.appendChild(div);
+    });
+
+    const skillsGrid = document.getElementById('skillsGrid');
+    CONFIG.skills.forEach(s => {
+      const div = document.createElement('div');
+      div.className = 'glass card';
+      div.innerHTML = `<h3>${s}</h3>`;
+      skillsGrid.appendChild(div);
+    });
+
+    // ====== TERMINAL TYPE EFFECT ======
+    const term = document.getElementById('terminal');
+    let line = 0, char = 0;
+    function type() {
+      if (line >= CONFIG.terminalLines.length) return;
+      const text = CONFIG.terminalLines[line];
+      term.textContent += text[char] || '';
+      char++;
+      if (char > text.length) {
+        term.textContent += '\n';
+        line++; char = 0;
+      }
+      setTimeout(type, 60);
+    }
+    type();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ====== NEW FEATURES IMPLEMENTATION ======
+
+    // 1. Visitor Count Simulation
+    function initVisitorCount() {
+      let count = localStorage.getItem('portfolio_visits');
+      if (!count) {
+        count = 1024 + Math.floor(Math.random() * 500); // Start with a cool number
+      } else {
+        count = parseInt(count) + 1;
+      }
+      localStorage.setItem('portfolio_visits', count);
+      document.getElementById('visitorCount').innerHTML = `> SYSTEM_ACCESS_LOG: USER_${count}`;
+    }
+    initVisitorCount();
+
+    // 2. Futuristic Project Animations (Intersection Observer)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+    // 3. Optimized Walkthrough Agent
+    const agentMsg = document.getElementById('agentMsg');
+    const agentText = document.getElementById('agentText');
+    const agentActions = document.getElementById('agentActions');
+    const agentOrb = document.getElementById('agentOrb');
+
+    const tourSteps = [
+      { target: '#home', text: "Greetings. I am your navigation AI. Would you like a guided tour of this portfolio?", buttons: [{text: 'Initialize Tour', next: 1}, {text: 'Dismiss', action: 'close'}] },
+      { target: '#about', text: "This sector contains the creator's core identity and mission parameters.", buttons: [{text: 'Proceed', next: 2}] },
+      { target: '#projects', text: "Behold, the neural architectures and systems forged by the creator.", buttons: [{text: 'Proceed', next: 3}] },
+      { target: '#skills', text: "These are the technological protocols and languages mastered.", buttons: [{text: 'Proceed', next: 4}] },
+      { target: '#contact', text: "Transmission protocols. Establish a secure connection here.", buttons: [{text: 'Finish', action: 'close'}] }
+    ];
+
+    function updateAgent(stepIndex) {
+      const step = tourSteps[stepIndex];
+      agentText.textContent = step.text;
+      agentActions.innerHTML = '';
+      
+      if (step.target) {
+        document.querySelector(step.target).scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      step.buttons.forEach(btn => {
+        const button = document.createElement('button');
+        button.className = 'agent-btn';
+        button.textContent = btn.text;
+        button.onclick = () => {
+          if (btn.action === 'close') {
+            agentMsg.classList.remove('active');
+          } else if (btn.next !== undefined) {
+            updateAgent(btn.next);
+          }
+        };
+        agentActions.appendChild(button);
+      });
+      
+      agentMsg.classList.add('active');
+    }
+
+    // Initialize Agent after a brief delay
+    setTimeout(() => updateAgent(0), 1500);
+
+    agentOrb.onclick = () => {
+      agentMsg.classList.toggle('active');
+      if (agentMsg.classList.contains('active') && agentText.textContent === "System Online.") {
+        updateAgent(0);
+      }
+    };
+  </script>
 </body>
-
 </html>
-        
-        
