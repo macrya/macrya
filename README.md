@@ -53,7 +53,7 @@ I'm always up for talking about:
 - Or just sharing cool code snippets!
 
 **Find me around the web:**
-
+personal blog "https://ryan-ojbui1kj6-carlhomieboy5-6238s-projects.vercel.app/"
 <p align="left">
   <a href="https://www.instagram.com/mandryans.wrld?igsh=MXM4ZHNseW9tMmozYQ==" target="_blank">
     <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" />
