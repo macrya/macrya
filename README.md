@@ -5,7 +5,9 @@
 ### Full-Stack Developer building secure, production-grade systems in Kenya 🇰🇪
 
 **Web Development** · **Application Security** · **Fintech Integrations**
-
+[![Portfolio](https://img.shields.io/badge/Portfolio-myresumee--azure.vercel.app-0F172A?style=for-the-badge&logo=vercel&logoColor=white)](https://myresumee-azure.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-@macrya-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/macrya)
+[![Profile Views](https://komarev.com/ghpvc/?username=macrya&style=for-the-badge&color=0284C7)](https://github.com/macrya)
 [![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://ryan-ojbui1kj6-carlhomieboy5-6238s-projects.vercel.app/)
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kimmarkryan5@gmail.com)
 [![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/4uC4jfHk)
@@ -42,10 +44,13 @@ I design and ship **production systems**, not just tutorials — point-of-sale p
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
 
-**Security & Auth**
+#### Cybersecurity & Operating Systems
+![Kali Linux](https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kalilinux&logoColor=white)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 
-![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=jsonwebtokens&logoColor=white)
-![OAuth](https://img.shields.io/badge/Secure_APIs-4B0082?style=flat-square&logo=letsencrypt&logoColor=white)
 
 **Data & Cloud**
 
@@ -54,13 +59,13 @@ I design and ship **production systems**, not just tutorials — point-of-sale p
 ![Google Cloud](https://img.shields.io/badge/Google_Cloud-4285F4?style=flat-square&logo=googlecloud&logoColor=white)
 ![BigQuery](https://img.shields.io/badge/BigQuery-669DF6?style=flat-square&logo=googlebigquery&logoColor=white)
 
-**Deployment**
+**Deployment and cloudinfrastructure**
 
 ![Railway](https://img.shields.io/badge/Railway-0B0D0E?style=flat-square&logo=railway&logoColor=white)
-![Render](https://img.shields.io/badge/Render-46E3B7?style=flat-square&logo=render&logoColor=white)
-![DigitalOcean](https://img.shields.io/badge/DigitalOcean-0080FF?style=flat-square&logo=digitalocean&logoColor=white)
-
----
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=black)
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
+![Cloudflare](https://img.shields.io/badge/Cloudflare_R2-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white)
 
 ## 🚀 Featured Work
 
@@ -128,5 +133,13 @@ I'm open to **cybersecurity** and **web development** roles and collaborations �
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kimmarkryan5@gmail.com)
 
 ![Profile Views](https://komarev.com/ghpvc/?username=macrya&label=Profile%20Views&color=0e75b6&style=flat)
+
+</div>
+### GitHub Metrics
+
+<div align="center">
+
+<img height="165em" src="https://github-readme-stats.vercel.app/api?username=macrya&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true" alt="GitHub Stats" />
+<img height="165em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=macrya&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
 
 </div>
